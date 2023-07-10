@@ -1,0 +1,18 @@
+# "Local" routing rules are included under this current dataset, not a special case
+- source_dataset: elastic_agent.fleet_server
+  rules:
+    # Route error logs to `nginx.error` when they're sourced from an error logfile
+    - target_dataset: elastic_agent.test
+      if: "true == true"
+      namespace:
+        - "{{ data_stream.namespace }}"
+        - default
+
+# external routing rule to test it's not handled
+- source_dataset: k8s.router
+  rules:
+    - target_dataset: nginx
+      if: "true == true"
+      namespace:
+        - "{{ data_stream.namespace }}"
+        - default
