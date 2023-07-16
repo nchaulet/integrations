@@ -1,5 +1,5 @@
 # newer versions go on top
-- version: "1.8.1"
+- version: "1.8.2"
   changes:
     - description: Added new Health dashboards for Input Metrics
       type: enhancement
