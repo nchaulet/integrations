@@ -11,7 +11,7 @@
 # external routing rule to test it's not handled
 - source_dataset: k8s.router
   rules:
-    - target_dataset: nginx
+    - target_dataset: elastic_agent.fleet_server
       if: "true == true"
       namespace:
         - "{{ data_stream.namespace }}"
